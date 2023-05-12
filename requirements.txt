@@ -1,3 +1,9 @@
 streamlit
 pandas
 numpy
+plotly
+math
+seaborn
+matplotlib
+koreanize-matplotlib
+datetime
