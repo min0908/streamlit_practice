@@ -88,11 +88,6 @@ oil = pd.read_csv('data/oil.csv')
 # st.plotly_chart(fig)
 
 
-
-
-
-
-
 #################################################################################
 # 'holiday여부' 열 추가 및 초기값 0으로 설정
 train['holiday여부'] = 0
@@ -121,6 +116,6 @@ fig.append_trace(go.Scatter(x=train_aux['date'], y=train_aux['sales'],marker_col
 fig.append_trace(go.Scatter(x=train_aux['date'], y=train_aux['onpromotion'],marker_color='#93c47d', text="promotion"), row=2, col=1)
 
 fig.update_layout(height=1000, width=1400, title_text="SALES & ONPROMOTION ANALYSIS",  
-                  title_font=dict(size=30, color='#8a8d93'), showlegend=False)
+                  title_font=dict(size=30, color='#783f04'), showlegend=False)
 
 st.plotly_chart(fig)
