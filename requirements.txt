@@ -2,8 +2,7 @@ streamlit
 pandas
 numpy
 plotly
+plotly.express
 math
 seaborn
 matplotlib
-koreanize-matplotlib
-datetime
