@@ -8,12 +8,11 @@ from plotly.subplots import make_subplots
 import plotly.express as px
 
 
-train = pd.read_parquet('min0908/streamlit-practice/data/train.parquet', engine = 'pyarrow')
-
-holiday = pd.read_csv('min0908/streamlit-practice/data/holidays_events.csv')
-transactions = pd.read_csv('min0908/streamlit-practice/data/transactions.csv')
-stores = pd.read_csv('min0908/streamlit-practice/data/stores.csv')
-oil = pd.read_csv('min0908/streamlit_practice/data/train.parquet/streamlit-practice/data/oil.csv')
+train = pd.read_parquet('/app/streamlit-practice/data/train.parquet', engine = 'pyarrow')
+holiday = pd.read_csv('/app/streamlit-practice/data/holidays_events.csv')
+transactions = pd.read_csv('/app/streamlit-practice/data/transactions.csv')
+stores = pd.read_csv('/app/streamlit-practice/data/stores.csv')
+oil = pd.read_csv('/app/streamlit-practice/data/oil.csv')
 
 # 'holiday여부' 열 추가 및 초기값 0으로 설정
 train['holiday여부'] = 0
