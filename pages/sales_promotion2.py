@@ -9,10 +9,6 @@ import plotly.express as px
 
 # '/app/streamlit-practice/data/holidays_events.csv'
 train = pd.read_parquet('data/train.parquet', engine = 'pyarrow')
-holiday = pd.read_csv('data/holidays_events.csv')
-transactions = pd.read_csv('data/transactions.csv')
-stores = pd.read_csv('data/stores.csv')
-oil = pd.read_csv('data/oil.csv')
 
 ##############################################################################
 train['year'] = pd.to_datetime(train['date']).dt.year
@@ -24,6 +20,7 @@ df_year_s = df_year_s.reset_index()
 df_year_s['color'] =['#e2e9d2', '#cbd1bd', '#b4baa8', '#9ea393', '#878b7e']
 
 df_month_s = train.groupby('month')['sales'].mean()
+df_month_s = pd.DataFrame(df_month_s)
 df_month_s = df_month_s.sort_values('sales', ascending=True)
 df_month_s['color'] = ['#ece8f4','#d9d2e9','#c3bdd1','#ada8ba','#9793a3','#827e8b','#6c6974','#56545d','#413f45','#2b2a2e','#151517','#000000']
 new_order = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -32,6 +29,7 @@ df_month_s = df_month_s.reset_index()
 
 
 df_day_of_week_s = train.groupby('day_of_week')['sales'].mean()
+df_day_of_week_s = pd.DataFrame(df_day_of_week_s)
 df_day_of_week_s = df_day_of_week_s.sort_values('sales', ascending=False)
 df_day_of_week_s['color'] = ['rgb(255, 0, 0)','rgb(255, 36, 36)','rgb(255, 71, 71)','rgb(255, 107, 107)','rgb(255, 143, 143)','rgb(255, 179, 179)','rgb(255, 214, 214)']
 new_order_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
@@ -43,6 +41,7 @@ df_year = df_year.reset_index()
 df_year['color'] =['#e2e9d2', '#cbd1bd', '#b4baa8', '#9ea393', '#878b7e']
 
 df_month = train.groupby('month')['onpromotion'].mean()
+df_month = pd.DataFrame(df_month)
 df_month = df_month.sort_values('onpromotion', ascending=True)
 df_month['color'] = ['#ece8f4','#d9d2e9','#c3bdd1','#ada8ba','#9793a3','#827e8b','#6c6974','#56545d','#413f45','#2b2a2e','#151517','#000000']
 new_order = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -51,6 +50,7 @@ df_month = df_month.reset_index()
 
 
 df_day_of_week = train.groupby('day_of_week')['onpromotion'].mean()
+df_day_of_week = pd.DataFrame(df_day_of_week)
 df_day_of_week = df_day_of_week.sort_values('onpromotion', ascending=False)
 df_day_of_week['color'] = ['rgb(255, 0, 0)','rgb(255, 36, 36)','rgb(255, 71, 71)','rgb(255, 107, 107)','rgb(255, 143, 143)','rgb(255, 179, 179)','rgb(255, 214, 214)']
 new_order_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
