@@ -11,6 +11,7 @@ import plotly.express as px
 train = pd.read_parquet('data/train.parquet', engine = 'pyarrow')
 
 ##############################################################################
+
 train['year'] = pd.to_datetime(train['date']).dt.year
 train['month'] = pd.to_datetime(train['date']).dt.strftime("%B")
 train['day_of_week'] = pd.to_datetime(train['date']).dt.day_name()
@@ -86,4 +87,33 @@ fig.append_trace(go.Bar(x=df_day_of_week['day_of_week'], y=df_day_of_week['onpro
 
 fig.update_layout(height=1000, width=1400, title_text="SALES & ONPROMOTION ANALYSIS",  
                   title_font=dict(size=30, color='#783f04'), showlegend=False)
+
+st.title('**평균 Sales와 Promotion 분석**')
 st.plotly_chart(fig)
+
+
+tab1, tab2 = st.tabs(["**일자별 비교(by date)**", "**산점도**"])
+
+with tab1:
+    train_aux = train[['date', 'sales', 'onpromotion']].groupby('date').mean()
+    train_aux = train_aux.reset_index()
+
+    fig2 = make_subplots(rows=2, cols=1, 
+                    subplot_titles=("일자별 평균 sales", "일자별 평균 Promotion"))
+    fig2.append_trace(go.Scatter(x=train_aux['date'], y=train_aux['sales'],marker_color='#b4a7d6', text="sales"), row=1, col=1)
+    fig2.append_trace(go.Scatter(x=train_aux['date'], y=train_aux['onpromotion'],marker_color='#93c47d', text="promotion"), row=2, col=1)
+
+    fig2.update_layout(height=1000, width=1400, title_text="SALES & ONPROMOTION ANALYSIS",  
+                    title_font=dict(size=30, color='#783f04'), showlegend=False)
+
+    st.plotly_chart(fig2)
+
+with tab2:
+    fig3 = px.scatter(train_aux[train_aux['onpromotion'] > 0], x="onpromotion", y="sales", color='sales', 
+                           color_continuous_scale="fall", size='sales', log_x=True, size_max=30)
+
+    fig3.update_layout({"title": f'프로모션은 평균 sales에 영향을 미칠까? ',
+                        "xaxis": {"title":"On Promotion"},
+                        "yaxis": {"title":"Sales"},
+                        "showlegend": False})
+    st.plotly_chart(fig3)  
