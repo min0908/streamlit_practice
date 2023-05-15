@@ -86,7 +86,7 @@ fig.append_trace(go.Bar(x=df_day_of_week['day_of_week'], y=df_day_of_week['onpro
 #fig.update_xaxes(visible=False, row=1, col=1)
 
 fig.update_layout(height=1000, width=1400, title_text="SALES & ONPROMOTION ANALYSIS",  
-                  title_font=dict(size=30, color='#783f04'), showlegend=False)
+                  title_font=dict(size=30, color='#783f04'), showlegend=False, width="100%")
 
 st.title('**평균 Sales와 Promotion 분석**')
 st.plotly_chart(fig)
@@ -104,7 +104,7 @@ with tab1:
     fig2.append_trace(go.Scatter(x=train_aux['date'], y=train_aux['onpromotion'],marker_color='#93c47d', text="promotion"), row=2, col=1)
 
     fig2.update_layout(height=1000, width=1400, title_text="SALES & ONPROMOTION ANALYSIS",  
-                    title_font=dict(size=30, color='#783f04'), showlegend=False)
+                    title_font=dict(size=30, color='#783f04'), showlegend=False, width="100%")
 
     st.plotly_chart(fig2)
 
@@ -115,5 +115,5 @@ with tab2:
     fig3.update_layout({"title": f'프로모션은 평균 sales에 영향을 미칠까? ',
                         "xaxis": {"title":"On Promotion"},
                         "yaxis": {"title":"Sales"},
-                        "showlegend": False})
+                        "showlegend": False}, width="100%")
     st.plotly_chart(fig3)  
