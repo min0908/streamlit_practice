@@ -86,7 +86,7 @@ fig.append_trace(go.Bar(x=df_day_of_week['day_of_week'], y=df_day_of_week['onpro
 #fig.update_xaxes(visible=False, row=1, col=1)
 
 fig.update_layout(height=1000, width=1400, title_text="SALES & ONPROMOTION ANALYSIS",  
-                  title_font=dict(size=30, color='#783f04'), showlegend=False, width="100%")
+                  title_font=dict(size=30, color='#783f04'), showlegend=False)
 
 st.title('**평균 Sales와 Promotion 분석**')
 st.plotly_chart(fig)
