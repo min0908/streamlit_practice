@@ -19,7 +19,9 @@ if store_nbr:
     plt.title(f'Store {store_nbr}: Top 5 selling product families')
     st.pyplot(plt)
 
-'''강진전후 애니메이션(sales)'''
+st.write("")
+st.subheader('**강진전후 애니메이션(sales)**')
+
 train['date'] = pd.to_datetime(train['date'])
 
 earthquake_date = pd.to_datetime('2016-04-16')
@@ -57,4 +59,4 @@ def animate(i):
 # 애니메이션을 생성
 ani = FuncAnimation(fig, animate, frames=len(dates), blit=True)
 
-st.pyplot(fig)  
+st.pyplot(ani)  
