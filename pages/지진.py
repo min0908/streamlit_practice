@@ -58,5 +58,7 @@ def animate(i):
 
 # 애니메이션을 생성
 ani = FuncAnimation(fig, animate, frames=len(dates), blit=True)
+ani.save('animation.gif', writer='pillow')
 
-st.pyplot(ani)  
+# Display the animation in Streamlit
+st.image('animation.gif')
