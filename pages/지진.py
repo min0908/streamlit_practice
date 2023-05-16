@@ -60,4 +60,4 @@ def animate(i):
 ani = FuncAnimation(fig, animate, frames=len(dates), blit=True)
 ani.save('animation.gif', writer='pillow')
 
-st.image('animation.gif', width = 100%)
+st.image('animation.gif')
