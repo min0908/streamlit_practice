@@ -33,9 +33,11 @@ with tab1:
     
     st.plotly_chart(fig, use_container_width=True)
 
+
 train['date'] = pd.to_datetime(train['date'])
 oil['date'] = pd.to_datetime(oil['date'])
 
+train['sales'] = pd.to_numeric(train['sales'])
 sales_oil = train.groupby('date').mean()['sales']
 sales_oil = sales_oil.reset_index()
 
