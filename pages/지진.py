@@ -61,4 +61,4 @@ ani = FuncAnimation(fig, animate, frames=len(dates), blit=True)
 ani.save('animation.gif', writer='pillow')
 
 # Display the animation in Streamlit
-st.image('animation.gif')
+st.image('animation.gif', use_container_width=True)
