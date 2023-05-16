@@ -102,15 +102,15 @@ with tab1:
                     subplot_titles=("일자별 평균 sales", "일자별 평균 Promotion"))
     fig2.append_trace(go.Scatter(x=train_aux['date'], y=train_aux['sales'],marker_color='#b4a7d6', text="sales"), row=1, col=1)
     fig2.append_trace(go.Scatter(x=train_aux['date'], y=train_aux['onpromotion'],marker_color='#93c47d', text="promotion"), row=2, col=1)
-
-    fig2.update_layout(height=1000, width=1400, title_text="SALES & ONPROMOTION ANALYSIS",  
+    # height=1000, width=1400,
+    fig2.update_layout(title_text="SALES & ONPROMOTION ANALYSIS",  
                     title_font=dict(size=30, color='#783f04'), showlegend=False)
 
-    st.plotly_chart(fig2)
+    st.plotly_chart(fig2, use_container_width=True)
 
 with tab2:
     fig3 = px.scatter(train_aux[train_aux['onpromotion'] > 0], x="onpromotion", y="sales", color='sales', 
                            color_continuous_scale="fall", size='sales', log_x=True, size_max=30)
 
     # fig3.update_layout(title={'text': '프로모션은 평균 sales에 영향을 미칠까?'},showlegend=False , width="100%")
-    st.plotly_chart(fig3)  
+    st.plotly_chart(fig3, use_container_width=True)  
