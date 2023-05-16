@@ -111,6 +111,6 @@ with tab1:
 with tab2:
     fig3 = px.scatter(train_aux[train_aux['onpromotion'] > 0], x="onpromotion", y="sales", color='sales', 
                            color_continuous_scale="fall", size='sales', log_x=True, size_max=30)
-# title={'text': '프로모션은 평균 sales에 영향을 미칠까?'},
-    fig3.update_layout(showlegend=False , width="100%")
+
+    # fig3.update_layout(title={'text': '프로모션은 평균 sales에 영향을 미칠까?'},showlegend=False , width="100%")
     st.plotly_chart(fig3)  
