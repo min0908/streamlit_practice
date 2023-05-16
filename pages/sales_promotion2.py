@@ -104,7 +104,7 @@ with tab1:
     fig2.append_trace(go.Scatter(x=train_aux['date'], y=train_aux['onpromotion'],marker_color='#93c47d', text="promotion"), row=2, col=1)
 
     fig2.update_layout(height=1000, width=1400, title_text="SALES & ONPROMOTION ANALYSIS",  
-                    title_font=dict(size=30, color='#783f04'), showlegend=False, width="100%")
+                    title_font=dict(size=30, color='#783f04'), showlegend=False)
 
     st.plotly_chart(fig2)
 
