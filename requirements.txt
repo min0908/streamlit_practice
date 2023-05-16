@@ -4,3 +4,6 @@ numpy
 plotly
 seaborn
 matplotlib
+matplotlib.animation
+matplotlib.dates
+mplfinance
