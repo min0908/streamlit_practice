@@ -40,7 +40,7 @@ oil['date'] = pd.to_datetime(oil['date'])
 train['sales'] = pd.to_numeric(train['sales'], errors='coerce')
 train = train.dropna(subset=['sales'])
 
-sales_oil = train.groupby('date').mean()['sales']
+sales_oil = train.groupby('date').agg({'sales' : 'mean'})
 sales_oil = sales_oil.reset_index()
 
 sales_oil = pd.merge(sales_oil, oil, on ='date', how='left')
