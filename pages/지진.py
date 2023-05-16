@@ -3,11 +3,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-import plotly.graph_objs as go
-from plotly.subplots import make_subplots
-import plotly.express as px
+import matplotlib.animation
+import matplotlib.dates
+import mplfinance
 
-
+train = pd.read_parquet('data/train.parquet', engine = 'pyarrow')
 
 store_nbr = st.number_input("상점 번호를 입력하세요", min_value=1)
 
