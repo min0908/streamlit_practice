@@ -113,7 +113,5 @@ with tab2:
                            color_continuous_scale="fall", size='sales', log_x=True, size_max=30)
 
     fig3.update_layout( title_text='프로모션은 평균 sales에 영향을 미칠까? ',
-                        xaxis = {"title":"On Promotion"},
-                        yaxis = {"title":"Sales"},
                         showlegend=False , width="100%")
     st.plotly_chart(fig3)  
