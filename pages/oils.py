@@ -9,7 +9,7 @@ import plotly.express as px
 
 # '/app/streamlit-practice/data/holidays_events.csv'
 train = pd.read_parquet('data/train.parquet', engine = 'pyarrow')
-oil = pd.read_csv('oil.csv')
+oil = pd.read_csv('data/oil.csv')
 
 oil.loc[oil['date'] == '2013-01-01', 'dcoilwtico'] = 93.14
 oil = oil.interpolate(method='linear', limit=20) #보간법
