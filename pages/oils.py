@@ -37,7 +37,7 @@ with tab1:
 train['date'] = pd.to_datetime(train['date'])
 oil['date'] = pd.to_datetime(oil['date'])
 
-train['sales'] = pd.to_numeric(train['sales'])
+train = train[pd.to_numeric(train['sales'], errors='coerce').notnull()]
 sales_oil = train.groupby('date').mean()['sales']
 sales_oil = sales_oil.reset_index()
 
