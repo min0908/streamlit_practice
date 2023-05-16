@@ -60,11 +60,4 @@ def animate(i):
 ani = FuncAnimation(fig, animate, frames=len(dates), blit=True)
 ani.save('animation.gif', writer='pillow')
 
-# Determine the width of the animation plot based on Streamlit layout context
-if st.is_full_width():
-    plot_width = 0.9 * st.columns[1].width  # Adjust the scaling factor (0.9) as needed
-else:
-    plot_width = 800  # Set a default width for non-wide mode
-
-# Display the animation in Streamlit
-st.image('animation.gif', width=plot_width)
+st.image('animation.gif', width = 100%)
