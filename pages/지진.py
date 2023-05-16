@@ -3,9 +3,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-import matplotlib.animation
-import matplotlib.dates
-import mplfinance
+from matplotlib.animation import FuncAnimation
+import matplotlib.dates as mdates
+import mplfinance as mpf
 
 train = pd.read_parquet('data/train.parquet', engine = 'pyarrow')
 
@@ -57,4 +57,4 @@ def animate(i):
 # 애니메이션을 생성
 ani = FuncAnimation(fig, animate, frames=len(dates), blit=True)
 
-st.pyplot(fig)  # matplotlib 그래프를 Streamlit에 표시
+st.pyplot(fig)  
